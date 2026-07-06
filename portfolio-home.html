@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>许龙飞 | Portfolio</title>
+  <style>
+    :root {
+      --bg: #090c0b;
+      --bg-soft: #0e1211;
+      --panel: rgba(14, 18, 17, 0.86);
+      --panel-strong: rgba(18, 23, 22, 0.96);
+      --line: rgba(163, 196, 183, 0.12);
+      --line-strong: rgba(163, 196, 183, 0.22);
+      --text: #eef3ef;
+      --muted: rgba(238, 243, 239, 0.68);
+      --muted-strong: rgba(238, 243, 239, 0.84);
+      --accent: #7fb7a7;
+      --accent-soft: rgba(127, 183, 167, 0.16);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+      --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", "Songti SC", "STSong", "Noto Serif SC", "Times New Roman", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 18%, rgba(127, 183, 167, 0.11), transparent 26%),
+        radial-gradient(circle at 82% 12%, rgba(127, 183, 167, 0.08), transparent 20%),
+        linear-gradient(180deg, #090c0b 0%, #070908 100%);
+      font-family: var(--serif);
+      letter-spacing: 0.01em;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 120px 120px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.02) 78%, transparent);
+      opacity: 0.26;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      width: min(1400px, calc(100% - 56px));
+      margin: 0 auto;
+      padding-bottom: 72px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 84px;
+      padding: 14px 0;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(9, 12, 11, 0.92), rgba(9, 12, 11, 0.55));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .brand {
+      font-size: 1.08rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px 18px;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 3px;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: var(--accent);
+      transition: transform 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+      outline: none;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .hero {
+      min-height: calc(100vh - 84px);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 56px 0 38px;
+    }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.79rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .title {
+      margin: 0;
+      margin-top: clamp(18px, 6vh, 72px);
+      max-width: 10ch;
+      font-size: clamp(4.5rem, 11vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: 0.03em;
+      font-weight: 500;
+    }
+
+    .lede {
+      max-width: 48rem;
+      margin: 0;
+      font-size: clamp(1.02rem, 1.35vw, 1.14rem);
+      line-height: 1.78;
+      color: var(--muted-strong);
+    }
+
+    .catalog {
+      margin-top: auto;
+      padding-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .entry {
+      position: relative;
+      min-height: 260px;
+      padding: 24px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(18, 23, 22, 0.96), rgba(11, 14, 13, 0.94));
+      box-shadow: var(--shadow);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .entry::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(127, 183, 167, 0.1), transparent 42%);
+      opacity: 0;
+      transition: opacity 180ms ease;
+      pointer-events: none;
+    }
+
+    .entry:hover,
+    .entry:focus-visible {
+      transform: translateY(-3px);
+      border-color: var(--line-strong);
+      outline: none;
+    }
+
+    .entry:hover::before,
+    .entry:focus-visible::before {
+      opacity: 1;
+    }
+
+    .entry-index {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .entry-title {
+      margin: 14px 0 10px;
+      font-size: 1.6rem;
+      line-height: 1.18;
+      font-weight: 500;
+    }
+
+    .entry-desc {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 0.96rem;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+
+    .entry-foot {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: var(--sans);
+      font-size: 0.84rem;
+      color: rgba(238, 243, 239, 0.56);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .entry-foot span:last-child {
+      color: var(--accent);
+    }
+
+    .details {
+      margin-top: 64px;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+      gap: 28px;
+      padding: 36px 0 34px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 110px;
+    }
+
+    .detail-head {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .detail-badge {
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .detail h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.12;
+      font-weight: 500;
+      max-width: 16ch;
+    }
+
+    .detail p {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.78;
+      color: var(--muted-strong);
+    }
+
+    .detail-copy {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      padding-top: 2px;
+      font-size: 0.97rem;
+    }
+
+    .detail-copy strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .about-note {
+      margin-top: 10px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(127, 183, 167, 0.05);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1080px) {
+      .catalog {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .detail {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 28px, 1400px);
+      }
+
+      .nav {
+        min-height: 78px;
+        align-items: flex-start;
+        padding: 16px 0 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 44px;
+      }
+
+      .title {
+        max-width: 100%;
+        font-size: clamp(3.5rem, 20vw, 5.6rem);
+      }
+
+      .catalog {
+        grid-template-columns: 1fr;
+      }
+
+      .entry {
+        min-height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="nav">
+      <a class="brand" href="#top">许龙飞</a>
+      <nav class="nav-links" aria-label="栏目入口">
+        <a href="#k12">K12评测</a>
+        <a href="#t2v">图生视频</a>
+        <a href="#rag">保险RAG</a>
+        <a href="#about">关于我</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="eyebrow">portfolio / evaluation / systems</div>
+      <h1 class="title">许龙飞</h1>
+      <p class="lede">
+        聚焦大模型能力评测、图像生成视频验证与垂直领域智能问答系统构建，
+        以结构化方法、可复现结论和质量控制为核心，做克制而清晰的技术表达。
+      </p>
+
+      <section class="catalog" aria-label="项目入口">
+        <a class="entry" href="#k12">
+          <div>
+            <div class="entry-index">01</div>
+            <div class="entry-title">K12评测</div>
+            <p class="entry-desc">K12教育国内大模型能力评测，关注教育场景中的理解、推理与表达稳定性。</p>
+          </div>
+          <div class="entry-foot">
+            <span>Project</span>
+            <span>View</span>
+          </div>
+        </a>
+
+        <a class="entry" href="#t2v">
+          <div>
+            <div class="entry-index">02</div>
+            <div class="entry-title">图生视频</div>
+            <p class="entry-desc">图生视频模型评测，围绕时序一致性、画面连贯性与提示词可控性展开。</p>
+          </div>
+          <div class="entry-foot">
+            <span>Project</span>
+            <span>View</span>
+          </div>
+        </a>
+
+        <a class="entry" href="#rag">
+          <div>
+            <div class="entry-index">03</div>
+            <div class="entry-title">保险RAG</div>
+            <p class="entry-desc">保险垂直领域 RAG 智能问答系统构建与质量管控，强调知识召回与答案可靠性。</p>
+          </div>
+          <div class="entry-foot">
+            <span>Project</span>
+            <span>View</span>
+          </div>
+        </a>
+
+        <a class="entry" href="#about">
+          <div>
+            <div class="entry-index">04</div>
+            <div class="entry-title">关于我</div>
+            <p class="entry-desc">关于个人背景、方法偏好与工作方式的简短说明，保持清晰、克制、直接。</p>
+          </div>
+          <div class="entry-foot">
+            <span>Project</span>
+            <span>View</span>
+          </div>
+        </a>
+      </section>
+    </section>
+
+    <section class="details" aria-label="项目详情">
+      <article class="detail" id="k12">
+        <div class="detail-head">
+          <div class="detail-badge">01 / K12评测</div>
+          <h2>K12教育国内大模型能力评测</h2>
+          <p>
+            建立面向 K12 教育场景的评测视角，重点观察模型在中文理解、知识问答、
+            逻辑推理、课堂语境和表达稳定性上的表现。
+          </p>
+        </div>
+        <div class="detail-copy">
+          <p><strong>关注重点</strong>：题型分层、场景覆盖、结果归因与误差分析。</p>
+          <p><strong>页面呈现</strong>：让评测结论能够快速被阅读、比较与复用。</p>
+        </div>
+      </article>
+
+      <article class="detail" id="t2v">
+        <div class="detail-head">
+          <div class="detail-badge">02 / 图生视频</div>
+          <h2>图生视频模型评测</h2>
+          <p>
+            从画面一致性、动作衔接、时序变化和风格保持等维度，评估图生视频模型
+            在真实生成任务中的稳定性与可控性。
+          </p>
+        </div>
+        <div class="detail-copy">
+          <p><strong>关注重点</strong>：连续性、细节漂移、生成质量与镜头感。</p>
+          <p><strong>页面呈现</strong>：以最少的元素保留技术感和作品目录感。</p>
+        </div>
+      </article>
+
+      <article class="detail" id="rag">
+        <div class="detail-head">
+          <div class="detail-badge">03 / 保险RAG</div>
+          <h2>保险垂直领域 RAG 智能问答系统构建与质量管控</h2>
+          <p>
+            面向保险领域知识问答，围绕知识检索、答案组织、引用一致性和质量
+            管控建立完整链路，尽量让系统回答稳定、准确且可追溯。
+          </p>
+        </div>
+        <div class="detail-copy">
+          <p><strong>关注重点</strong>：检索召回、答案一致性、错误兜底与评测闭环。</p>
+          <p><strong>页面呈现</strong>：保持沉稳黑灰底与低饱和青绿色高光。</p>
+        </div>
+      </article>
+
+      <article class="detail" id="about">
+        <div class="detail-head">
+          <div class="detail-badge">04 / 关于我</div>
+          <h2>关于我</h2>
+          <p>
+            我关注的是把复杂问题做成结构清晰、表达克制、结果可信的作品。
+            方向上偏向大模型评测、应用系统构建和质量控制。
+          </p>
+        </div>
+        <div class="detail-copy">
+          <p><strong>工作方式</strong>：先定义问题，再拆解指标，最后把结果讲清楚。</p>
+          <p><strong>个人气质</strong>：简洁、稳重、偏技术审美，喜欢低噪音的表达。</p>
+          <div class="about-note">如果你后续想补充联系方式、教育背景或更多项目案例，可以直接接在这里，不会破坏当前版式。</div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
