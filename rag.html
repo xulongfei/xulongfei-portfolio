@@ -21,27 +21,108 @@
       </div>
     </header>
 
-    <section class="project">
-      <p class="project-kicker" data-editable="true" data-key="rag.kicker">03 / Insurance RAG System</p>
-      <h1 class="project-title" data-editable="true" data-key="rag.title">保险垂直领域 RAG 智能问答系统</h1>
-      <p class="project-summary" data-editable="true" data-key="rag.summary">
-        面向保险业务知识问答，构建从资料整理、知识切分、检索召回、答案生成到质量评测的完整链路，
-        重点解决回答准确、依据可查、结果稳定的问题。
+    <section class="case-hero rag-hero">
+      <p class="project-kicker" data-editable="true" data-key="rag.kicker">INSURANCE RAG CASE STUDY</p>
+      <h1 class="case-title" data-editable="true" data-key="rag.title">让保险问答有依据地回答</h1>
+      <p class="case-summary" data-editable="true" data-key="rag.summary">
+        以“这个保险保多久？”这个真实用户问题为例，展示如何从保险条款中定位关键信息，
+        组织可理解的回答，并判断答案是否准确、完整、可追溯。
       </p>
-      <div class="project-grid">
-        <div class="project-panel">
-          <p data-editable="true" data-key="rag.panel1"><strong>项目背景</strong>：保险条款信息密度高、表述严谨，问答系统既要能找到正确依据，也要避免编造、遗漏和误导性表达。</p>
-          <p data-editable="true" data-key="rag.panel2"><strong>我的角色</strong>：参与 RAG 链路设计与质量管控，关注知识组织、检索命中、答案结构和可追溯性。</p>
+      <div class="case-question-card">
+        <span>用户问题</span>
+        <strong data-editable="true" data-key="rag.question">这个保险保多久？</strong>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="section-heading">
+        <p>source material</p>
+        <h2>原始资料：保险期间条款</h2>
+      </div>
+      <div class="clause-card">
+        <p data-editable="true" data-key="rag.clause1"><strong>保险期间</strong>：本合同的保险期间由您与我们约定并在保险单中载明，保险期间自本合同生效之日零时起至保险单载明的约定终止日的二十四时止。</p>
+        <p data-editable="true" data-key="rag.clause2"><strong>基本保险金额</strong>：本合同的基本保险金额由您与我们在投保时约定，并在保险单或保险凭证上载明。基本保险金额一经确定，中途不得变更。</p>
+        <p data-editable="true" data-key="rag.clause3"><strong>未成年人身故保险金限制</strong>：为未成年子女投保的人身保险，在被保险人成年之前，因被保险人身故给付的身故保险金总和最高不得超过国务院保险监督管理机构规定的限额。</p>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="section-heading">
+        <p>case reasoning</p>
+        <h2>问答过程：先找“保险期间”，再组织答案</h2>
+      </div>
+      <div class="rag-flow">
+        <div class="flow-step">
+          <span>01</span>
+          <h3>理解问题</h3>
+          <p>用户问“保多久”，对应的不是赔付金额，也不是未成年人限制，而是合同中的保险期间。</p>
         </div>
-        <div class="project-panel">
-          <p data-editable="true" data-key="rag.panel3"><strong>方法方案</strong>：围绕知识库结构、切片策略、召回效果、引用一致性、答案完整性和失败案例建立检查机制。</p>
-          <p data-editable="true" data-key="rag.panel4"><strong>结果价值</strong>：让系统输出从“能回答”提升到“答得准、说得清、有依据”，降低业务使用中的不确定性。</p>
+        <div class="flow-step active">
+          <span>02</span>
+          <h3>定位依据</h3>
+          <p>关键依据来自“保险期间”条款：起点是合同生效日零时，终点是保险单载明终止日二十四时。</p>
+        </div>
+        <div class="flow-step">
+          <span>03</span>
+          <h3>排除干扰</h3>
+          <p>“基本保险金额”和“未成年人身故保险金限制”与保障多久无关，不能混入答案。</p>
+        </div>
+        <div class="flow-step">
+          <span>04</span>
+          <h3>生成回答</h3>
+          <p>回答要说明：具体时长看保险单，合同条款只定义了起止时间的判断方式。</p>
         </div>
       </div>
-      <ul class="proof-list">
-        <li data-editable="true" data-key="rag.proof1">能力证明：RAG 系统理解、知识工程、质量评测、业务语义拆解。</li>
-        <li data-editable="true" data-key="rag.proof2">可补充数据：知识库规模、问题集数量、召回准确率、人工复核通过率。</li>
-      </ul>
+    </section>
+
+    <section class="case-section split-case">
+      <div>
+        <div class="section-heading compact">
+          <p>answer demo</p>
+          <h2>最终回答示例</h2>
+        </div>
+        <div class="answer-card">
+          <p data-editable="true" data-key="rag.answer">这个保险具体保多久，需要看保险单上载明的保险期间。根据条款，保障从合同生效之日零时开始，到保险单约定终止日的二十四时结束。因此，不能只根据条款正文判断具体年限，要以保单中的起止日期为准。</p>
+          <div class="answer-source">引用依据：保险期间条款</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-heading compact">
+          <p>quality check</p>
+          <h2>答案质量判断</h2>
+        </div>
+        <div class="quality-list">
+          <div><strong>准确性</strong><span>命中“保险期间”这一关键条款，没有把金额或身故限制误当成答案。</span></div>
+          <div><strong>完整性</strong><span>同时说明保障开始时间、结束时间，以及具体日期要看保险单。</span></div>
+          <div><strong>可追溯</strong><span>答案可以回到原始条款验证，不是凭模型常识推断。</span></div>
+          <div><strong>风险控制</strong><span>没有直接编造“保 20 年 / 保终身”等条款中不存在的信息。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="section-heading">
+        <p>capability shown</p>
+        <h2>这个案例展示的能力</h2>
+      </div>
+      <div class="capability-grid">
+        <div>
+          <h3>业务语义识别</h3>
+          <p>能把用户口语化问题映射到保险合同中的正式条款。</p>
+        </div>
+        <div>
+          <h3>依据筛选</h3>
+          <p>能区分关键依据和干扰条款，避免答案混入无关信息。</p>
+        </div>
+        <div>
+          <h3>答案组织</h3>
+          <p>能把合同语言转成用户能理解的回答，同时保留必要限制条件。</p>
+        </div>
+        <div>
+          <h3>质量评测</h3>
+          <p>从准确性、完整性、可追溯和风险控制四个角度判断回答是否可靠。</p>
+        </div>
+      </div>
     </section>
   </main>
   <a class="back-home" href="./index.html">返回首页</a>
