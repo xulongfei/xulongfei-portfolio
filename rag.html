@@ -49,29 +49,56 @@
     <section class="case-section">
       <div class="section-heading">
         <p>case reasoning</p>
-        <h2>问答过程：先找“保险期间”，再组织答案</h2>
+        <h2>案例拆解：从用户问题到可信回答</h2>
       </div>
-      <div class="rag-flow">
-        <div class="flow-step">
-          <span>01</span>
-          <h3>理解问题</h3>
-          <p>用户问“保多久”，对应的不是赔付金额，也不是未成年人限制，而是合同中的保险期间。</p>
-        </div>
-        <div class="flow-step active">
-          <span>02</span>
-          <h3>定位依据</h3>
-          <p>关键依据来自“保险期间”条款：起点是合同生效日零时，终点是保险单载明终止日二十四时。</p>
-        </div>
-        <div class="flow-step">
-          <span>03</span>
-          <h3>排除干扰</h3>
-          <p>“基本保险金额”和“未成年人身故保险金限制”与保障多久无关，不能混入答案。</p>
-        </div>
-        <div class="flow-step">
-          <span>04</span>
-          <h3>生成回答</h3>
-          <p>回答要说明：具体时长看保险单，合同条款只定义了起止时间的判断方式。</p>
-        </div>
+      <div class="step-showcase">
+        <article class="analysis-step">
+          <div class="step-copy">
+            <span>Step 01 · Question intent</span>
+            <h3>理解用户真正想问什么</h3>
+            <p>“这个保险保多久？”是口语化表达，核心意图不是问赔多少钱，也不是问未成年人身故限制，而是问保障期间的起止规则。</p>
+          </div>
+          <div class="step-evidence">
+            <strong>识别结果</strong>
+            <p>问题意图：保险期间 / 保障起止时间</p>
+          </div>
+        </article>
+
+        <article class="analysis-step featured">
+          <div class="step-copy">
+            <span>Step 02 · Evidence grounding</span>
+            <h3>找到能支撑回答的关键条款</h3>
+            <p>关键依据来自“保险期间”条款：保障从合同生效之日零时开始，到保险单载明的约定终止日二十四时结束。</p>
+          </div>
+          <div class="step-evidence quote">
+            <strong>命中依据</strong>
+            <p>保险期间自本合同生效之日零时起至保险单载明的约定终止日的二十四时止。</p>
+          </div>
+        </article>
+
+        <article class="analysis-step">
+          <div class="step-copy">
+            <span>Step 03 · Noise filtering</span>
+            <h3>排除看起来相关但实际无关的信息</h3>
+            <p>“基本保险金额”说明赔付基准，“未成年人身故保险金限制”说明给付上限，它们都不能回答保障多久，应该从答案中剔除。</p>
+          </div>
+          <div class="step-evidence muted-card">
+            <strong>干扰信息</strong>
+            <p>基本保险金额 / 未成年人身故保险金限制</p>
+          </div>
+        </article>
+
+        <article class="analysis-step">
+          <div class="step-copy">
+            <span>Step 04 · Answer shaping</span>
+            <h3>把合同语言转成用户听得懂的回答</h3>
+            <p>最终回答不能编造具体年限，而要告诉用户：具体保多久看保险单，条款提供的是判断保障起止时间的方法。</p>
+          </div>
+          <div class="step-evidence">
+            <strong>回答原则</strong>
+            <p>不编造年限；说明起止时间；提示查看保单载明日期。</p>
+          </div>
+        </article>
       </div>
     </section>
 
