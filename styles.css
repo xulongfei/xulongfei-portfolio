@@ -1021,12 +1021,67 @@ a { color: inherit; text-decoration: none; }
   color: rgba(242, 241, 236, 0.7);
 }
 
-.personal-section {
+.favorite-media-card {
   display: grid;
-  gap: 18px;
+  gap: 12px;
 }
 
-.life-gallery {
+.media-slot {
+  min-height: 160px;
+  padding: 14px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed rgba(120, 186, 169, 0.32);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 28%),
+    linear-gradient(145deg, rgba(9, 13, 15, 0.8), rgba(12, 18, 20, 0.96));
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: rgba(242, 241, 236, 0.62);
+  text-align: center;
+}
+
+.media-slot-a { background:
+  radial-gradient(circle at 25% 20%, rgba(255, 190, 120, 0.2), transparent 34%),
+  linear-gradient(145deg, rgba(18, 16, 20, 0.86), rgba(10, 12, 14, 0.96)); }
+.media-slot-b { background:
+  radial-gradient(circle at 25% 20%, rgba(120, 186, 255, 0.18), transparent 34%),
+  linear-gradient(145deg, rgba(10, 16, 20, 0.86), rgba(10, 12, 14, 0.96)); }
+.media-slot-c { background:
+  radial-gradient(circle at 25% 20%, rgba(180, 140, 255, 0.18), transparent 34%),
+  linear-gradient(145deg, rgba(16, 10, 18, 0.86), rgba(10, 12, 14, 0.96)); }
+
+.media-slot[contenteditable="true"]:focus,
+.life-card[contenteditable="true"]:focus,
+.favorite-card [contenteditable="true"]:focus,
+.contact-card [contenteditable="true"]:focus {
+  outline: 1px dashed rgba(109, 180, 162, 0.8);
+  outline-offset: 4px;
+}
+
+.life-card {
+  min-height: 180px;
+  padding: 20px;
+  border-radius: 26px;
+  display: grid;
+  align-content: end;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.life-card[contenteditable="true"] {
+  align-content: start;
+}
+
+.life-card strong {
+  position: relative;
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
@@ -1199,5 +1254,7 @@ a { color: inherit; text-decoration: none; }
   .life-gallery,
   .favorites-grid { grid-template-columns: 1fr; }
   .life-card { min-height: 150px; }
+  .media-slot { min-height: 130px; }
+  .personal-split { grid-template-columns: 1fr; }
   .back-home { left: 12px; bottom: 12px; }
 }
