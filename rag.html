@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>许龙飞 | 保险RAG</title>
+  <title>许龙飞 | 文生视频</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -15,139 +15,166 @@
           <a href="./index.html">首页</a>
           <a href="./k12.html">K12评测</a>
           <a href="./t2v.html">图生视频</a>
-          <a class="active" href="./rag.html">保险RAG</a>
+          <a class="active" href="./rag.html">文生视频</a>
           <a href="./about.html">关于我</a>
         </nav>
       </div>
     </header>
 
-    <section class="case-hero rag-hero">
-      <p class="project-kicker" data-editable="true" data-key="rag.kicker">INSURANCE RAG CASE STUDY</p>
-      <h1 class="case-title" data-editable="true" data-key="rag.title">让保险问答有依据地回答</h1>
-      <p class="case-summary" data-editable="true" data-key="rag.summary">
-        以“这个保险保多久？”这个真实用户问题为例，展示如何从保险条款中定位关键信息，
-        组织可理解的回答，并判断答案是否准确、完整、可追溯。
-      </p>
-      <div class="case-question-card">
-        <span>用户问题</span>
-        <strong data-editable="true" data-key="rag.question">这个保险保多久？</strong>
+    <section class="video-hero">
+      <div class="video-hero-copy">
+        <p class="project-kicker" data-editable="true" data-key="textvideo.kicker">TEXT TO VIDEO CASE STUDY</p>
+        <h1 data-editable="true" data-key="textvideo.title">把一句话变成可控的视频镜头</h1>
+        <p data-editable="true" data-key="textvideo.summary">
+          以“雨夜古城上空出现发光青龙”为核心场景，展示如何把画面想象拆解成主体、环境、动作、镜头、光影与负面约束，
+          让文生视频从随机生成变成可评估、可复盘、可优化的创作流程。
+        </p>
+      </div>
+      <div class="cinema-frame" aria-label="文生视频场景封面">
+        <div class="dragon-scene">
+          <div class="moon"></div>
+          <div class="dragon-line"></div>
+          <div class="rain-lines"></div>
+          <div class="city-silhouette"></div>
+        </div>
+        <div class="frame-caption">
+          <span>scene concept</span>
+          <strong>雨夜古城 · 青龙掠空 · 电影感推进镜头</strong>
+        </div>
       </div>
     </section>
 
-    <section class="case-section">
+    <section class="video-section">
       <div class="section-heading">
-        <p>source material</p>
-        <h2>原始资料：保险期间条款</h2>
+        <p>scene brief</p>
+        <h2>场景描述</h2>
       </div>
-      <div class="clause-card">
-        <p data-editable="true" data-key="rag.clause1"><strong>保险期间</strong>：本合同的保险期间由您与我们约定并在保险单中载明，保险期间自本合同生效之日零时起至保险单载明的约定终止日的二十四时止。</p>
-        <p data-editable="true" data-key="rag.clause2"><strong>基本保险金额</strong>：本合同的基本保险金额由您与我们在投保时约定，并在保险单或保险凭证上载明。基本保险金额一经确定，中途不得变更。</p>
-        <p data-editable="true" data-key="rag.clause3"><strong>未成年人身故保险金限制</strong>：为未成年子女投保的人身保险，在被保险人成年之前，因被保险人身故给付的身故保险金总和最高不得超过国务院保险监督管理机构规定的限额。</p>
+      <div class="brief-card">
+        <p data-editable="true" data-key="textvideo.scene">
+          深夜的东方古城被细雨笼罩，青绿色能量从云层深处亮起，一条半透明的发光青龙从远处山脉上方缓慢游过。
+          镜头从街巷低处向上推进，湿润石板路反射灯笼光，远景有层叠屋檐与薄雾，整体氛围神秘、克制、电影感强。
+        </p>
       </div>
     </section>
 
-    <section class="case-section">
+    <section class="video-section">
       <div class="section-heading">
-        <p>case reasoning</p>
-        <h2>案例拆解：从用户问题到可信回答</h2>
+        <p>prompt structure</p>
+        <h2>提示词结构：把想象拆成可控参数</h2>
       </div>
-      <div class="step-showcase">
-        <article class="analysis-step">
-          <div class="step-copy">
-            <span>Step 01 · Question intent</span>
-            <h3>理解用户真正想问什么</h3>
-            <p>“这个保险保多久？”是口语化表达，核心意图不是问赔多少钱，也不是问未成年人身故限制，而是问保障期间的起止规则。</p>
-          </div>
-          <div class="step-evidence">
-            <strong>识别结果</strong>
-            <p>问题意图：保险期间 / 保障起止时间</p>
+      <div class="prompt-pipeline">
+        <div><strong>主体</strong><span>发光青龙、东方古城、雨夜街巷</span></div>
+        <div><strong>动作</strong><span>青龙缓慢掠过云层，镜头向前推进并轻微仰拍</span></div>
+        <div><strong>环境</strong><span>山雾、屋檐、灯笼、湿润石板路、细雨</span></div>
+        <div><strong>风格</strong><span>暗青色调、史诗幻想、电影级光影</span></div>
+        <div><strong>镜头</strong><span>低机位、广角、纵深空间、慢速运镜</span></div>
+        <div><strong>负面</strong><span>避免文字水印、比例错误、主体变形和过曝</span></div>
+      </div>
+    </section>
+
+    <section class="video-section case-gallery">
+      <div class="section-heading">
+        <p>prompt cases</p>
+        <h2>案例演示</h2>
+      </div>
+      <div class="video-case-grid">
+        <article class="video-case-card">
+          <div class="case-visual dragon-thumb one"></div>
+          <div class="case-content">
+            <span>CASE 01</span>
+            <h3>东方幻想场景</h3>
+            <p><strong>场景提示词</strong>：雨夜东方古城，青蓝色发光巨龙从云层中穿行，古建筑屋檐、灯笼、薄雾、湿润石板路，电影感广角镜头。</p>
+            <p><strong>负面提示词</strong>：文字水印、模糊、低清晰度、龙身断裂、建筑比例错误、画面过曝。</p>
           </div>
         </article>
-
-        <article class="analysis-step featured">
-          <div class="step-copy">
-            <span>Step 02 · Evidence grounding</span>
-            <h3>找到能支撑回答的关键条款</h3>
-            <p>关键依据来自“保险期间”条款：保障从合同生效之日零时开始，到保险单载明的约定终止日二十四时结束。</p>
-          </div>
-          <div class="step-evidence quote">
-            <strong>命中依据</strong>
-            <p>保险期间自本合同生效之日零时起至保险单载明的约定终止日的二十四时止。</p>
-          </div>
-        </article>
-
-        <article class="analysis-step">
-          <div class="step-copy">
-            <span>Step 03 · Noise filtering</span>
-            <h3>排除看起来相关但实际无关的信息</h3>
-            <p>“基本保险金额”说明赔付基准，“未成年人身故保险金限制”说明给付上限，它们都不能回答保障多久，应该从答案中剔除。</p>
-          </div>
-          <div class="step-evidence muted-card">
-            <strong>干扰信息</strong>
-            <p>基本保险金额 / 未成年人身故保险金限制</p>
-          </div>
-        </article>
-
-        <article class="analysis-step">
-          <div class="step-copy">
-            <span>Step 04 · Answer shaping</span>
-            <h3>把合同语言转成用户听得懂的回答</h3>
-            <p>最终回答不能编造具体年限，而要告诉用户：具体保多久看保险单，条款提供的是判断保障起止时间的方法。</p>
-          </div>
-          <div class="step-evidence">
-            <strong>回答原则</strong>
-            <p>不编造年限；说明起止时间；提示查看保单载明日期。</p>
+        <article class="video-case-card">
+          <div class="case-visual dragon-thumb two"></div>
+          <div class="case-content">
+            <span>CASE 02</span>
+            <h3>近景人物观察</h3>
+            <p><strong>场景提示词</strong>：年轻旅人站在雨夜街道中抬头望向天空，青色龙影映在脸上，背景是古城灯火和远处山雾，浅景深。</p>
+            <p><strong>负面提示词</strong>：面部崩坏、五官扭曲、手部错误、背景杂乱、过强锐化、人物漂移。</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="case-section split-case">
+    <section class="video-section">
+      <div class="section-heading">
+        <p>generation workflow</p>
+        <h2>生成流程：从一句话到稳定视频</h2>
+      </div>
+      <div class="video-step-list">
+        <article>
+          <span>Step 01 · Define</span>
+          <h3>先确定镜头核心</h3>
+          <p>明确视频最重要的画面记忆点：青龙掠过古城。其他元素都服务于这个主体，不让提示词失焦。</p>
+        </article>
+        <article>
+          <span>Step 02 · Decompose</span>
+          <h3>拆解主体、环境与动作</h3>
+          <p>把抽象的“震撼”“电影感”拆成可执行描述：低机位、广角、慢速推进、雨夜反光、云层穿行。</p>
+        </article>
+        <article>
+          <span>Step 03 · Control</span>
+          <h3>加入负面约束</h3>
+          <p>提前约束常见问题：水印、主体变形、比例错误、过曝、人物脸崩和背景杂乱。</p>
+        </article>
+        <article>
+          <span>Step 04 · Evaluate</span>
+          <h3>按视频质量维度复盘</h3>
+          <p>从主体一致性、动作连续性、镜头稳定性、风格保持和画面清晰度判断结果是否可用。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="video-section split-case">
       <div>
         <div class="section-heading compact">
-          <p>answer demo</p>
-          <h2>最终回答示例</h2>
+          <p>final prompt</p>
+          <h2>完整提示词</h2>
         </div>
-        <div class="answer-card">
-          <p data-editable="true" data-key="rag.answer">这个保险具体保多久，需要看保险单上载明的保险期间。根据条款，保障从合同生效之日零时开始，到保险单约定终止日的二十四时结束。因此，不能只根据条款正文判断具体年限，要以保单中的起止日期为准。</p>
-          <div class="answer-source">引用依据：保险期间条款</div>
+        <div class="prompt-card">
+          <p data-editable="true" data-key="textvideo.prompt">
+            雨夜的东方古城，湿润石板路反射灯笼光，远处山雾与层叠屋檐之间，一条半透明青蓝色发光巨龙从云层中缓慢掠过。
+            镜头从街巷低处向前推进并轻微仰拍，广角构图，电影级光影，暗青色调，史诗幻想氛围，细雨、薄雾、远景纵深，画面稳定，动作连贯，高质量视频。
+          </p>
         </div>
       </div>
       <div>
         <div class="section-heading compact">
-          <p>quality check</p>
-          <h2>答案质量判断</h2>
+          <p>negative prompt</p>
+          <h2>负面提示词</h2>
         </div>
-        <div class="quality-list">
-          <div><strong>准确性</strong><span>命中“保险期间”这一关键条款，没有把金额或身故限制误当成答案。</span></div>
-          <div><strong>完整性</strong><span>同时说明保障开始时间、结束时间，以及具体日期要看保险单。</span></div>
-          <div><strong>可追溯</strong><span>答案可以回到原始条款验证，不是凭模型常识推断。</span></div>
-          <div><strong>风险控制</strong><span>没有直接编造“保 20 年 / 保终身”等条款中不存在的信息。</span></div>
+        <div class="prompt-card warning">
+          <p data-editable="true" data-key="textvideo.negative">
+            文字水印、logo、低清晰度、模糊、画面抖动、主体变形、龙身断裂、建筑比例错误、人物脸部崩坏、手部错误、过曝、噪点、背景杂乱、风格不一致。
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="case-section">
+    <section class="video-section">
       <div class="section-heading">
-        <p>capability shown</p>
-        <h2>这个案例展示的能力</h2>
+        <p>evaluation lens</p>
+        <h2>这个案例展示的评测能力</h2>
       </div>
       <div class="capability-grid">
         <div>
-          <h3>业务语义识别</h3>
-          <p>能把用户口语化问题映射到保险合同中的正式条款。</p>
+          <h3>提示词结构化</h3>
+          <p>把模糊创意拆成主体、环境、动作、镜头和约束条件。</p>
         </div>
         <div>
-          <h3>依据筛选</h3>
-          <p>能区分关键依据和干扰条款，避免答案混入无关信息。</p>
+          <h3>视频质量判断</h3>
+          <p>关注主体一致性、动作连续性、镜头稳定和风格保持。</p>
         </div>
         <div>
-          <h3>答案组织</h3>
-          <p>能把合同语言转成用户能理解的回答，同时保留必要限制条件。</p>
+          <h3>问题预判</h3>
+          <p>通过负面提示词提前控制水印、变形、过曝和画面杂乱。</p>
         </div>
         <div>
-          <h3>质量评测</h3>
-          <p>从准确性、完整性、可追溯和风险控制四个角度判断回答是否可靠。</p>
+          <h3>结果复盘</h3>
+          <p>把生成结果转化为可描述、可对比、可优化的评测结论。</p>
         </div>
       </div>
     </section>
